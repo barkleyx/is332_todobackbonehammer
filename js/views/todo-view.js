@@ -79,6 +79,11 @@ var app = app || {};
 			}
 		},
 		
+		orderDate: function() {
+			var todoOrder = this.model.get('order');
+			$('#TestArea').append('<h1>Test'+todoOrder+'</h1><br>');
+		},
+		
 		// Toggle the `"completed"` state of the model.
 		toggleCompleted: function () {
 			this.model.toggle();
