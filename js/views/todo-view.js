@@ -22,7 +22,7 @@ var app = app || {};
 			'click .destroy': 'clear',
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
-			'blur .edit': 'close'
+			'blur .edit': 'close',
 			'drag label': 'toggleCompleted',
 			'dbltap label': 'edit',
 		},
