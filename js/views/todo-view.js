@@ -97,6 +97,8 @@ var app = app || {};
 
 		// Close the `"editing"` mode, saving changes to the todo.
 		close: function () {
+			var valueTitle = this.$('#editTitle').val();
+			var valueDate = this.$('#editDate').val();
 			var value = this.$input.val();
 			var trimmedValue = value.trim();
 
@@ -108,8 +110,8 @@ var app = app || {};
 				return;
 			}
 
-			if (trimmedValue) {
-				this.model.save({ title: trimmedValue });
+			if (trimmedValueTitle || trimmedValueDate) {
+				this.model.save({ title: trimmedValueTitle, date: trimmedValueDate });
 
 				if (value !== trimmedValue) {
 					// Model values changes consisting of whitespaces only are
