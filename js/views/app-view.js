@@ -108,8 +108,9 @@ var app = app || {};
 		// If you hit return in the main input field, create new **Todo** model,
 		// persisting it to *localStorage*.
 		createOnEnter: function (e) {
-			if (e.which === ENTER_KEY && this.$input.val().trim()) {
+			if (e.which === ENTER_KEY && this.$date.val().trim() && this.$input.val().trim()) {
 				app.todos.create(this.newAttributes());
+				this.$date.val('');
 				this.$input.val('');
 			}
 		},
