@@ -35,6 +35,7 @@ var app = app || {};
 			this.listenTo(this.model, 'change', this.render);
 			this.listenTo(this.model, 'destroy', this.remove);
 			this.listenTo(this.model, 'visible', this.toggleVisible);
+			this.listenTo(this.model, 'visible', this.datePriority);
 		},
 
 		// Re-render the titles of the todo item.
@@ -69,6 +70,15 @@ var app = app || {};
 			);
 		},
 
+		datePriority: function() {
+			if(app.TodoFilter == 'date'){
+				this.$el.html(this.template(this.model.toJSON()));
+				this.orderDate();
+				this.$input = this.$('.edit');
+				return this;
+			}
+		},
+		
 		// Toggle the `"completed"` state of the model.
 		toggleCompleted: function () {
 			this.model.toggle();
