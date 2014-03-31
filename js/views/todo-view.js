@@ -69,20 +69,6 @@ var app = app || {};
 				(isCompleted && app.TodoFilter === 'active')
 			);
 		},
-
-		datePriority: function() {
-			if(app.TodoFilter == 'date'){
-				this.$el.html(this.template(this.model.toJSON()));
-				this.orderDate();
-				this.$input = this.$('.edit');
-				return this;
-			}
-		},
-		
-		orderDate: function() {
-			var todoOrder = this.model.get('order');
-			$('#TestArea').append('<h1>Test'+todoOrder+'</h1><br>');
-		},
 		
 		// Toggle the `"completed"` state of the model.
 		toggleCompleted: function () {
