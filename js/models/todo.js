@@ -1,21 +1,16 @@
 /*global Backbone */
 var app = app || {};
 
-  Backbone.Model.prototype.toJSON = function() {
-
-                return this._parseDates(this.attributes);
-        };
+	Backbone.Model.prototype.toJSON = function() {
+		return this._parseDates(this.attributes);
+	};
 		
-        Backbone.Model.prototype._parseDates = function(attrs) {
- //              attrs = _.clone(attrs);
- //              var newdate = attrs.date.split("/").reverse().join("/");
- //              attrs.date = new Date(newdate).toISOString();
- //              return attrs;
- 
-				 attrs = _.clone(attrs);
-				 var d = new Date();
-				 attrs.date = d.toISOString();
-				 return attrs;
+    Backbone.Model.prototype._parseDates = function(attrs) {
+        attrs = _.clone(attrs);
+        var newdate = attrs.date.split("/").reverse().join("/");
+        attrs.date = new Date(newdate).toUTCString();
+        return attrs;
+
         };
 
 (function () {
